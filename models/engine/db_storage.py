@@ -31,11 +31,6 @@ class DBStorage:
 
     def all(self, cls=None):
         """Query on the current database session"""
-        if cls is None:
-            pass
-
-    def all(self, cls=None):
-        """Query on the current database session"""
         from models import base_model
 
         if cls is None:

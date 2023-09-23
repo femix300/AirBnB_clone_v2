@@ -39,3 +39,6 @@ def do_create(self, args):
 
     new_instance.save()
     print(new_instance.id)
+
+
+print("")

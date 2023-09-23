@@ -2,8 +2,7 @@
 """ State Module for HBNB project """
 from models.base_model import BaseModel
 from models.base_model import Base
-from sqlalchemy import Column, String, Integer
-
+from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 from os import getenv as gv
 
@@ -12,13 +11,11 @@ class State(BaseModel, Base):
     """ State class """
     __tablename__ = 'states'
 
-    id = Column(String(60), primary_key=True, nullable=False, name="id")
-    name = Column(String(128), nullable=False)
-
     storage_type = gv("HBNB_TYPE_STORAGE")
 
     # For DBStorage: Relationship with City and cascade delete
     if storage_type == 'db':
+        name = Column(String(128), nullable=False)
         cities = relationship("City", backref="state",
                               cascade="all, delete-orphan")
 
