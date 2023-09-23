@@ -11,14 +11,14 @@ def do_create(self, args):
     if not args:
         print("** class name missing **")
         return False
-    
+
     args_list = shlex.split(args)
     class_name = args_list[0]
 
     if class_name not in HBNBCommand.classes:
         print("** class doesn't exist **")
         return False
-    
+
     new_instance = HBNBCommand.classes[class_name]()
 
     for arg in args_list[1:]:
@@ -39,4 +39,3 @@ def do_create(self, args):
 
     new_instance.save()
     print(new_instance.id)
-
