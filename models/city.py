@@ -3,6 +3,7 @@
 from models.base_model import BaseModel
 from models.base_model import Base
 from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy.orm import relationship
 from os import getenv as gv
 
 
@@ -18,3 +19,5 @@ class City(BaseModel, Base):
     else:
         name = ""
         state_id = ""
+    places = relationship('Place', backref='cities',
+                          cascade='all, delete-orphan')
