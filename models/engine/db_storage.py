@@ -12,7 +12,6 @@ from models.review import Review
 from models.user import User
 
 
-
 class DBStorage:
     """This class manages storage of hbnb models using Mysqlalchemy"""
     __engine = None
@@ -50,7 +49,6 @@ class DBStorage:
             k = f"{obj.__class__.__name__}.{obj.id}"
             dict[k] = obj
         return dict
-
 
     def new(self, obj):
         """Add the object to the current database session"""
